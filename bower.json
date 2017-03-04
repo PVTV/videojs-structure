@@ -1,0 +1,13 @@
+{
+  "name": "videojs-structure",
+  "author": "Jairo Campos Vargas",
+  "license": "MIT",
+  "main": [
+    "dist/browser/videojs-structure.min.js"
+  ],
+  "keywords": [
+    "videojs",
+    "videojs-plugin"
+  ]
+}
+
