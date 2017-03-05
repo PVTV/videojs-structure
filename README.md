@@ -1,7 +1,7 @@
 # videojs-structure
 
 This will update the default video structure, this is perfect when you need to work with react and need to add new component into the video plugin tag, you will have
-a clean structure to add you custom styles
+a clean structure to add custom component in individual wrapper and easy to apply custom styles.
 
 ## Table of Contents
 
