@@ -40,6 +40,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 ## Options
 
 You can pass the customClass name for the new wrap video and moveControl true to move the controls video to new parent.
+If you pass components like true will add a custom wrapper for your components like React or Angular.
 
 ### Browserify
 

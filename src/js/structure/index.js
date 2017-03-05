@@ -54,6 +54,9 @@ class Structure {
     if (this.options.moveControl) {
       this.moveControls();
     }
+    if(this.options.components){
+      this.moveReactComponentToParent();
+    }
   }
   /**
    * moveControls move control to the video parent
@@ -65,6 +68,12 @@ class Structure {
     const fragment = document.createDocumentFragment();
 
     fragment.appendChild(this.player.getElementsByClassName('vjs-control-bar')[0]);
+    this.player.appendChild(fragment);
+  }
+  moveReactComponentToParent() {
+    const fragment = document.createDocumentFragment();
+
+    fragment.appendChild(this.player.getElementsByClassName('components-wrapper')[0]);
     this.player.appendChild(fragment);
   }
 }
