@@ -1,6 +1,7 @@
 # videojs-structure
 
-This will update the default video structure for custom functionality 
+This will update the default video structure, this is perfect when you need to work with react and need to add new component into the video plugin tag, you will have
+a clean structure to add you custom styles
 
 ## Table of Contents
 
@@ -22,6 +23,7 @@ bower install  --save videojs-structure
 
 To include videojs-structure on your website or web application, use any of the following methods.
 
+
 ### `<script>` Tag
 
 This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available.
@@ -32,9 +34,12 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script>
   var player = videojs('my-video');
 
-  player.structure();
+  player.structure({customClass: 'vjs-custom-wrapper',moveControl: true});
 </script>
 ```
+## Options
+
+You can pass the customClass name for the new wrap video and moveControl true to move the controls video to new parent.
 
 ### Browserify
 
