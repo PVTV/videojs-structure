@@ -3,7 +3,7 @@
 This will update the default video structure, this is perfect when you need to work with react and need to add new component into the video plugin tag, you will have
 two components zones: 
 
-### `<script>` Tag
+```js
  <div data-vjs-player>
     <video id="videojs-structure-player" class="video-js vjs-default-skin" controls>
       <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
@@ -17,6 +17,38 @@ two components zones:
 ## Default Component Tree
 
 The default component structure of the Video.js player looks something like this:
+
+```tree
+Player
+├── MediaLoader (has no DOM element)
+├── PosterImage
+├── TextTrackDisplay
+├── LoadingSpinner
+├── BigPlayButton
+├─┬ ControlBar
+│ ├── PlayToggle
+│ ├── VolumeMenuButton
+│ ├── CurrentTimeDisplay (hidden by default)
+│ ├── TimeDivider (hidden by default)
+│ ├── DurationDisplay (hidden by default)
+│ ├─┬ ProgressControl (hidden during live playback)
+│ │ └─┬ SeekBar
+│ │   ├── LoadProgressBar
+│ │   ├── MouseTimeDisplay
+│ │   └── PlayProgressBar
+│ ├── LiveDisplay (hidden during VOD playback)
+│ ├── RemainingTimeDisplay
+│ ├── CustomControlSpacer (has no UI)
+│ ├── PlaybackRateMenuButton (hidden, unless playback tech supports rate changes)
+│ ├── ChaptersButton (hidden, unless there are relevant tracks)
+│ ├── DescriptionsButton (hidden, unless there are relevant tracks)
+│ ├── SubtitlesButton (hidden, unless there are relevant tracks)
+│ ├── CaptionsButton (hidden, unless there are relevant tracks)
+│ ├── AudioTrackButton (hidden, unless there are relevant tracks)
+│ └── FullscreenToggle
+├── ErrorDisplay (hidden, until there is an error)
+└── TextTrackSettings
+```
 
 ## The Update Component Tree
 
