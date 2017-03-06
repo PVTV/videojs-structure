@@ -3,7 +3,7 @@
 This will update the default video structure, this is perfect when you need to work with react and need to add new component into the video plugin tag, you will have
 two components zones: 
 
-```js
+```html
  <div data-vjs-player>
     <video id="videojs-structure-player" class="video-js vjs-default-skin" controls>
       <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
@@ -12,7 +12,7 @@ two components zones:
     <div class="components-first-zone">Component Zone 1</div>
     <div class="components-second-zone">Component Zone 2</div>
   </div>
-```js
+```
 
 ## Default Component Tree
 
