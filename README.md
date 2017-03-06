@@ -1,8 +1,61 @@
 # videojs-structure
 
 This will update the default video structure, this is perfect when you need to work with react and need to add new component into the video plugin tag, you will have
-a clean structure to add custom component in individual wrapper and easy to apply custom styles.
+two components zones: 
 
+### `<script>` Tag
+ <div data-vjs-player>
+    <video id="videojs-structure-player" class="video-js vjs-default-skin" controls>
+      <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    </video>
+    <div class="components-first-zone">Component Zone 1</div>
+    <div class="components-second-zone">Component Zone 2</div>
+  </div>
+```js
+
+## Default Component Tree
+
+The default component structure of the Video.js player looks something like this:
+
+## The Update Component Tree
+
+The new component structure of the Video.js player looks something like this:
+
+```tree
+Player
+├─┬ New Wrapper with Custom Class (Name will be the customClass parameter into the object parameters)
+│ ├── MediaLoader (has no DOM element)
+│ ├── PosterImage
+│ ├── TextTrackDisplay
+│ ├── LoadingSpinner
+│ ├── BigPlayButton
+│ ├─┬ ControlBar
+│ │ ├── PlayToggle
+│ │ ├── VolumeMenuButton
+│ │ ├── CurrentTimeDisplay (hidden by default)
+│ │ ├── TimeDivider (hidden by default)
+│ │ ├── DurationDisplay (hidden by default)
+│ │ ├─┬ ProgressControl (hidden during live playback)
+│ │ │ └─┬ SeekBar
+│ │ │   ├── LoadProgressBar
+│ │ │   ├── MouseTimeDisplay
+│ │ │   └── PlayProgressBar
+│ │ ├── LiveDisplay (hidden during VOD playback)
+│ │ ├── RemainingTimeDisplay
+│ │ ├── CustomControlSpacer (has no UI)
+│ │ ├── PlaybackRateMenuButton (hidden, unless playback tech supports rate changes)
+│ │ ├── ChaptersButton (hidden, unless there are relevant tracks)
+│ │ ├── DescriptionsButton (hidden, unless there are relevant tracks)
+│ │ ├── SubtitlesButton (hidden, unless there are relevant tracks)
+│ │ ├── CaptionsButton (hidden, unless there are relevant tracks)
+│ │ ├── AudioTrackButton (hidden, unless there are relevant tracks)
+│ │ └── FullscreenToggle
+│ ├── ErrorDisplay (hidden, until there is an error)
+│ └── TextTrackSettings
+│ └── Component Zone 2 (will go the custom components into new wrapper)
+├─ Component Zone 1 (will go the custom components)
+```
 ## Table of Contents
 
 <!-- START doctoc -->

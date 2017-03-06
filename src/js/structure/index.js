@@ -54,9 +54,9 @@ class Structure {
     if (this.options.moveControl) {
       this.moveControls();
     }
-    if(this.options.components){
-      this.moveReactComponentToParent();
-    }
+    // We define compopnents zones that will append into the video wrapper
+    this.componentZones(wrapper, 'components-second-zone');
+    this.componentZones(this.player, 'components-first-zone');
   }
   /**
    * moveControls move control to the video parent
@@ -70,11 +70,23 @@ class Structure {
     fragment.appendChild(this.player.getElementsByClassName('vjs-control-bar')[0]);
     this.player.appendChild(fragment);
   }
-  moveReactComponentToParent() {
-    const fragment = document.createDocumentFragment();
+  /**
+   * componentZones will create a components zones
+   *
+   * @param {Object} elm Element that will append to new zone wrapper
+   * @param {Object} component the class name for the new zone
+   * @function componentZones
+   *
+   */
+  componentZones(elm, component) {
+    const zone = this.player.getElementsByClassName(component);
 
-    fragment.appendChild(this.player.getElementsByClassName('components-wrapper')[0]);
-    this.player.appendChild(fragment);
+    if (zone.length > 0) {
+      const fragment = document.createDocumentFragment();
+
+      fragment.appendChild(this.player.getElementsByClassName(component)[0]);
+      elm.appendChild(fragment);
+    }
   }
 }
 export default Structure;

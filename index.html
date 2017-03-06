@@ -6,10 +6,14 @@
   <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">
 </head>
 <body>
-  <video id="videojs-structure-player" class="video-js vjs-default-skin" controls>
-    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-    <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
-  </video>
+  <div data-vjs-player>
+    <video id="videojs-structure-player" class="video-js vjs-default-skin" controls>
+      <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    </video>
+    <div class="components-first-zone">Component Zone 1</div>
+    <div class="components-second-zone">Component Zone 2</div>
+  </div>
   <ul>
     <li><a href="test/">Run unit tests in browser.</a></li>
     <li><a href="dist/docs/api/">Read generated api docs.</a></li>
@@ -21,7 +25,7 @@
     (function(window, videojs) {
       var player = window.player = videojs('videojs-structure-player');
 
-      player.structure({customClass: 'vjs-custom-wrapper',moveControl: true});
+      player.structure({customClass: 'vjs-media-zone',moveControl: true});
     }(window, window.videojs));
   </script>
 </body>
