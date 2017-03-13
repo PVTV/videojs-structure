@@ -13,6 +13,7 @@
     </video>
     <div class="components-first-zone">Component Zone 1</div>
     <div class="components-second-zone">Component Zone 2</div>
+    <div class="video-wrapper-tag">Video tag wrapper</div>
   </div>
   <ul>
     <li><a href="test/">Run unit tests in browser.</a></li>
@@ -25,7 +26,7 @@
     (function(window, videojs) {
       var player = window.player = videojs('videojs-structure-player');
 
-      player.structure({customClass: 'vjs-media-zone',moveControl: true});
+      player.structure({customClass: 'vjs-media-zone',moveControl: true, videoTagWrapper: true});
     }(window, window.videojs));
   </script>
 </body>

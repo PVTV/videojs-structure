@@ -54,7 +54,12 @@ class Structure {
     if (this.options.moveControl) {
       this.moveControls();
     }
-    // We define compopnents zones that will append into the video wrapper
+    if (this.options.videoTagWrapper) {
+      // This will add an video tag wrapper
+      this.moveVideo();
+    }
+    // We define compopnents zones that will append into the player wrapper
+    this.componentZones(wrapper, 'video-wrapper-tag');
     this.componentZones(wrapper, 'components-second-zone');
     this.componentZones(this.player, 'components-first-zone');
   }
@@ -69,6 +74,12 @@ class Structure {
 
     fragment.appendChild(this.player.getElementsByClassName('vjs-control-bar')[0]);
     this.player.appendChild(fragment);
+  }
+  moveVideo() {
+    const fragment = document.createDocumentFragment();
+
+    fragment.appendChild(this.player.getElementsByClassName('vjs-tech')[0]);
+    this.player.getElementsByClassName('video-wrapper-tag')[0].appendChild(fragment);
   }
   /**
    * componentZones will create a components zones
