@@ -56,7 +56,7 @@ class Structure {
     }
     if (this.options.videoTagWrapper) {
       // This will add an video tag wrapper
-      this.moveVideo();
+      this.moveVideo('video-inside');
     }
     // We define compopnents zones that will append into the player wrapper
     this.componentZones(wrapper, 'video-wrapper-tag');
@@ -75,11 +75,11 @@ class Structure {
     fragment.appendChild(this.player.getElementsByClassName('vjs-control-bar')[0]);
     this.player.appendChild(fragment);
   }
-  moveVideo() {
+  moveVideo(element) {
     const fragment = document.createDocumentFragment();
 
     fragment.appendChild(this.player.getElementsByClassName('vjs-tech')[0]);
-    this.player.getElementsByClassName('video-wrapper-tag')[0].appendChild(fragment);
+    this.player.getElementsByClassName(element)[0].appendChild(fragment);
   }
   /**
    * componentZones will create a components zones
