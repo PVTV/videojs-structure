@@ -46,6 +46,7 @@ class Structure {
   *
   */
   addWrap() {
+    // This will wrap all the media element
     const wrapper = this.customWrap();
 
     wrapper.wrapAll(this.player.childNodes);
@@ -55,13 +56,16 @@ class Structure {
       this.moveControls();
     }
     if (this.options.videoTagWrapper) {
-      // This will add an video tag wrapper
       this.moveVideo('video-inside');
     }
-    // We define compopnents zones that will append into the player wrapper
     this.componentZones(wrapper, 'video-wrapper-tag');
-    this.componentZones(wrapper, 'components-second-zone');
-    this.componentZones(this.player, 'components-first-zone');
+    if (this.options.header) {
+      this.componentZones(this.player, 'vjs-header', wrapper);
+    }
+    if (this.options.footer) {
+       this.componentZones(this.player, 'vjs-footer');
+    }
+   
   }
   /**
    * moveControls move control to the video parent
@@ -89,14 +93,18 @@ class Structure {
    * @function componentZones
    *
    */
-  componentZones(elm, component) {
+  componentZones(elm, component, before = false) {
     const zone = this.player.getElementsByClassName(component);
 
     if (zone.length > 0) {
       const fragment = document.createDocumentFragment();
 
       fragment.appendChild(this.player.getElementsByClassName(component)[0]);
-      elm.appendChild(fragment);
+      if (before) {
+        elm.insertBefore(fragment, before);
+      } else {
+        elm.appendChild(fragment);
+      }
     }
   }
 }

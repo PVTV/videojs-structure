@@ -9,8 +9,8 @@ two components zones:
       <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
       <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
     </video>
-    <div class="components-first-zone">Component Zone 1</div>
-    <div class="components-second-zone">Component Zone 2</div>
+    <div class="vjs-header">Header React Components</div>
+    <div class="vjs-footer">Footer React Components</div>
   </div>
 ```
 
@@ -56,37 +56,38 @@ The new component structure of the Video.js player looks something like this:
 
 ```tree
 Player
+├─┬ Header (Custom React Components)
 ├─┬ New Wrapper with Custom Class (Name will be the customClass parameter into the object parameters)
 │ ├── MediaLoader (has no DOM element)
 │ ├── PosterImage
 │ ├── TextTrackDisplay
 │ ├── LoadingSpinner
 │ ├── BigPlayButton
-│ ├─┬ ControlBar
-│ │ ├── PlayToggle
-│ │ ├── VolumeMenuButton
-│ │ ├── CurrentTimeDisplay (hidden by default)
-│ │ ├── TimeDivider (hidden by default)
-│ │ ├── DurationDisplay (hidden by default)
-│ │ ├─┬ ProgressControl (hidden during live playback)
-│ │ │ └─┬ SeekBar
-│ │ │   ├── LoadProgressBar
-│ │ │   ├── MouseTimeDisplay
-│ │ │   └── PlayProgressBar
-│ │ ├── LiveDisplay (hidden during VOD playback)
-│ │ ├── RemainingTimeDisplay
-│ │ ├── CustomControlSpacer (has no UI)
-│ │ ├── PlaybackRateMenuButton (hidden, unless playback tech supports rate changes)
-│ │ ├── ChaptersButton (hidden, unless there are relevant tracks)
-│ │ ├── DescriptionsButton (hidden, unless there are relevant tracks)
-│ │ ├── SubtitlesButton (hidden, unless there are relevant tracks)
-│ │ ├── CaptionsButton (hidden, unless there are relevant tracks)
-│ │ ├── AudioTrackButton (hidden, unless there are relevant tracks)
-│ │ └── FullscreenToggle
 │ ├── ErrorDisplay (hidden, until there is an error)
 │ └── TextTrackSettings
-│ └── Component Zone 2 (will go the custom components into new wrapper)
-├─ Component Zone 1 (will go the custom components)
+  └── Custom React Components
+├─┬ ControlBar (only if option moveControl is true)
+│ ├── PlayToggle
+│ ├── VolumeMenuButton
+│ ├── CurrentTimeDisplay (hidden by default)
+│ ├── TimeDivider (hidden by default)
+│ ├── DurationDisplay (hidden by default)
+│ ├─┬ ProgressControl (hidden during live playback)
+│ │ └─┬ SeekBar
+│ │   ├── LoadProgressBar
+│ │   ├── MouseTimeDisplay
+│ │   └── PlayProgressBar
+│ ├── LiveDisplay (hidden during VOD playback)
+│ ├── RemainingTimeDisplay
+│ ├── CustomControlSpacer (has no UI)
+│ ├── PlaybackRateMenuButton (hidden, unless playback tech supports rate changes)
+│ ├── ChaptersButton (hidden, unless there are relevant tracks)
+│ ├── DescriptionsButton (hidden, unless there are relevant tracks)
+│ ├── SubtitlesButton (hidden, unless there are relevant tracks)
+│ ├── CaptionsButton (hidden, unless there are relevant tracks)
+│ ├── AudioTrackButton (hidden, unless there are relevant tracks)
+│ └── FullscreenToggle
+├─ Footer (Custom React Components)
 ```
 ## Table of Contents
 
@@ -126,6 +127,12 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 You can pass the customClass name for the new wrap video and moveControl true to move the controls video to new parent.
 If you pass components like true will add a custom wrapper for your components like React or Angular.
+
+## Options List
+
+customClass String : Will be the media wrapper
+header Bool : Header Zone 
+footer Bool : Footer Zone 
 
 ### Browserify
 

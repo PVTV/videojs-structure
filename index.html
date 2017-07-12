@@ -11,9 +11,9 @@
       <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
       <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
     </video>
-    <div class="components-first-zone">Component Zone 1</div>
-    <div class="components-second-zone">Component Zone 2</div>
+    <div class="vjs-header">Video Header</div>   
     <div class="video-wrapper-tag">Video tag wrapper<div class="video-inside"><span>hello</span></div></div>
+    <div class="vjs-footer">Video Footer</div>
   </div>
   <ul>
     <li><a href="test/">Run unit tests in browser.</a></li>
@@ -26,7 +26,7 @@
     (function(window, videojs) {
       var player = window.player = videojs('videojs-structure-player');
 
-      player.structure({customClass: 'vjs-media-zone',moveControl: true, videoTagWrapper: true});
+      player.structure({customClass: 'vjs-media-zone',moveControl: true, videoTagWrapper: true, header : true, footer : true});
     }(window, window.videojs));
   </script>
 </body>
