@@ -43,7 +43,7 @@
     "src/"
   ],
   "dependencies": {
-    "video.js": "^6.8.0",
+    "video.js": "^6.8.0"
   },
   "devDependencies": {
     "ghooks": "^1.3.2",
